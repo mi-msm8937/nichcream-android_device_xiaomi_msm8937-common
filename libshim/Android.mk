@@ -1,3 +1,5 @@
+include $(call all-makefiles-under,$(call my-dir))
+
 include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := libandroid
 LOCAL_MODULE := libshims_android
