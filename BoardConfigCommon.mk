@@ -54,7 +54,7 @@ TARGET_BOOTLOADER_BOARD_NAME 	:= msm8937
 TARGET_NO_BOOTLOADER 		:= true
 
 # Init
-TARGET_INIT_VENDOR_LIB         := libinit_xiaomi_msm8937
+TARGET_INIT_VENDOR_LIB         := //$(VENDOR_PATH):libinit_xiaomi_msm8937
 TARGET_PLATFORM_DEVICE_BASE    := /devices/platform/soc/
 TARGET_RECOVERY_DEVICE_MODULES := libinit_xiaomi_msm8937
 
