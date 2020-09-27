@@ -1,6 +1,9 @@
 # Camera sockets
 /data/vendor/qcam(/.*)?		u:object_r:vendor_camera_data_file:s0
 
+# Firmware
+/mnt/vendor/persist(/.*)?	u:object_r:mnt_vendor_file:s0
+
 # FPC Fingerprint
 
 # Goodix Fingerprint
