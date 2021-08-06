@@ -177,6 +177,10 @@ vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
+# Camera libts - from riva Xiaomi/riva/riva:8.1.0/OPM1.171019.026/V11.0.2.0.OCKMIXM:user/release-keys
+-vendor/lib/libts_detected_face_hal.so
+-vendor/lib/libts_face_beautify_hal.so
+
 # Charger - from TA-1024
 vendor/bin/hvdcp_opti
 
