@@ -6,3 +6,10 @@ allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
 # Prop
 get_prop(init, vendor_xiaomi_prop)
+
+# Allow init bind mounting system files
+allow init system_file:dir mounton;
+allow init system_file:file mounton;
+allow init vendor_file:file mounton;
+allow init vendor_configs_file:dir mounton;
+allow init vendor_configs_file:file mounton;
