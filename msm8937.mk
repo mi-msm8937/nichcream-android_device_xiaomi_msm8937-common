@@ -252,6 +252,11 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     fstab.qcom
 
+# Input
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl
+
 # Keymaster
 ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
 PRODUCT_PACKAGES += \
