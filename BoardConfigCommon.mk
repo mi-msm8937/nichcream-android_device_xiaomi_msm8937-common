@@ -53,6 +53,11 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_BOOTLOADER_BOARD_NAME 	:= msm8937
 TARGET_NO_BOOTLOADER 		:= true
 
+# Init
+TARGET_INIT_VENDOR_LIB         := libinit_xiaomi_msm8937
+TARGET_PLATFORM_DEVICE_BASE    := /devices/soc/
+TARGET_RECOVERY_DEVICE_MODULES := libinit_xiaomi_msm8937
+
 # Properties
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
@@ -114,6 +119,13 @@ BOARD_HAVE_BLUETOOTH_QCOM                   := true
 BLUETOOTH_HCI_USE_MCT                       := true
 QCOM_BT_USE_SMD_TTY                         := true
 QCOM_BT_USE_BTNV := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_USES_QTI_CAMERA_DEVICE := true
+TARGET_TS_MAKEUP := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true

@@ -129,6 +129,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor \
     Snap
 
+PRODUCT_PACKAGES += \
+    camera.msm8937 \
+    libmm-qcamera
+
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
