@@ -178,6 +178,13 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(COMMON_PATH)/compatibility_matrix.xml
 
+ifneq ($(TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER),true)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest/gatekeeper.xml
+endif
+ifneq ($(TARGET_USES_DEVICE_SPECIFIC_KEYMASTER),true)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest/keymaster.xml
+endif
+
 # IPACM
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 
