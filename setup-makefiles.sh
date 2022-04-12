@@ -44,8 +44,6 @@ write_headers "mi8937 tiare"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
-echo "" >> "$PRODUCTMK"
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt true
 
 # We are done!
 write_footers
