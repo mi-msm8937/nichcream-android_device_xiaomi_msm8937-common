@@ -257,7 +257,6 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage
-    start vendor.hvdcp_opti
     start vendor.vm_bms
 
 service hbtp /system/vendor/bin/hbtp_daemon
@@ -304,6 +303,7 @@ on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
 service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    disabled
     class main
     user root
     group system wakelock
