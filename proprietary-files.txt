@@ -450,6 +450,12 @@ vendor/firmware/a530v3_gpmu.fw2
 vendor/firmware/a530v3_seq.fw2
 vendor/firmware/a540_gpmu.fw2
 
+# Graphics firmware (A3xx) - from olive Xiaomi/olive/olive:9/PKQ1.190319.001/V11.0.11.0.PCNMIXM:user/release-keys
+vendor/firmware/a300_pfp.fw
+vendor/firmware/a300_pm4.fw
+vendor/firmware/a330_pfp.fw
+vendor/firmware/a330_pm4.fw
+
 # Keystore - from TA-1024
 vendor/lib/hw/keystore.msm8937.so:vendor/lib/hw/keystore.msm8937.so
 vendor/lib64/hw/keystore.msm8937.so:vendor/lib64/hw/keystore.msm8937.so
