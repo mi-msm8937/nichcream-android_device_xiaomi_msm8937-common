@@ -46,6 +46,7 @@ static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 static int g_attention = 0;
+static bool WhiteLED = false;
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -55,6 +56,9 @@ char const*const GREEN_LED_FILE
 
 char const*const BLUE_LED_FILE
         = "/sys/class/leds/blue/brightness";
+
+char const*const WHITE_LED_FILE
+        = "/sys/class/leds/white/brightness";
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
@@ -73,6 +77,9 @@ char const*const GREEN_BLINK_FILE
 
 char const*const BLUE_BLINK_FILE
         = "/sys/class/leds/blue/blink";
+
+char const*const WHITE_BLINK_FILE
+        = "/sys/class/leds/white/blink";
 
 char const*const PERSISTENCE_FILE
         = "/sys/class/graphics/fb0/msm_fb_persist_mode";
@@ -217,22 +224,31 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
 
     if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-        }
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
-                write_int(GREEN_LED_FILE, 0);
-        }
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
+        if (WhiteLED) {
+            if (write_int(WHITE_BLINK_FILE, blink))
+                write_int(WHITE_LED_FILE, 0);
+        } else {
+            if (red) {
+                if (write_int(RED_BLINK_FILE, blink))
+                    write_int(RED_LED_FILE, 0);
+            }
+            if (green) {
+                if (write_int(GREEN_BLINK_FILE, blink))
+                    write_int(GREEN_LED_FILE, 0);
+            }
+            if (blue) {
+                if (write_int(BLUE_BLINK_FILE, blink))
+                    write_int(BLUE_LED_FILE, 0);
+            }
         }
     } else {
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
+        if (WhiteLED)
+            write_int(WHITE_LED_FILE, rgb_to_brightness(state));
+        else {
+            write_int(RED_LED_FILE, red);
+            write_int(GREEN_LED_FILE, green);
+            write_int(BLUE_LED_FILE, blue);
+        }
     }
 
     return 0;
@@ -322,6 +338,10 @@ static int open_lights(const struct hw_module_t* module, char const* name,
 {
     int (*set_light)(struct light_device_t* dev,
             struct light_state_t const* state);
+
+    if (!access(WHITE_LED_FILE, F_OK)) {
+        WhiteLED = true;
+    }
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
         set_light = set_light_backlight;
