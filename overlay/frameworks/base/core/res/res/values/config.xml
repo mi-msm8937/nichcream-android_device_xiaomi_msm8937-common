@@ -561,9 +561,6 @@
     <!-- Flag specifying whether WFC over IMS is available on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
 
-    <!-- Whether notify fingerprint client of successful cancelled authentication -->
-<!--    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool> -->
-
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>"/system/framework/arm64/boot-framework.oat"</item>
