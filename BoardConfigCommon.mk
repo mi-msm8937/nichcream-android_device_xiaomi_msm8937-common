@@ -241,4 +241,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the common proprietary files
--include vendor/xiaomi/msm8937-common/BoardConfigVendor.mk
+include vendor/xiaomi/msm8937-common/BoardConfigVendor.mk
