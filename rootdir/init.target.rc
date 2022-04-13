@@ -341,6 +341,10 @@ on boot
     chown system system /sys/class/leds/blue/breath
     chown system system /sys/class/leds/blue/delay_on
     chown system system /sys/class/leds/blue/delay_off
+    chown system system /sys/class/leds/white/blink
+    chown system system /sys/class/leds/white/breath
+    chown system system /sys/class/leds/white/delay_on
+    chown system system /sys/class/leds/white/delay_off
 
 # FM radio
 on property:vendor.hw.fm.init=*
