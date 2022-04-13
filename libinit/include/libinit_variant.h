@@ -18,6 +18,7 @@ typedef struct variant_info {
     std::string marketname;
     std::string model;
     std::string build_fingerprint;
+    std::string vendor_security_patch;
 } variant_info_t;
 
 void set_variant_props(const variant_info_t variant);
