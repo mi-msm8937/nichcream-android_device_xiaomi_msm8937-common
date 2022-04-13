@@ -60,7 +60,7 @@ TARGET_PLATFORM_DEVICE_BASE    := /devices/platform/soc/
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_msm8937
 
 # Properties
-TARGET_SYSTEM_PROP := $(COMMON_PATH)/system.prop
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
