@@ -262,3 +262,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the common proprietary files
 include vendor/xiaomi/msm8937-common/BoardConfigVendor.mk
+
+# Inherit private extras
+-include vendor/extras/board.mk

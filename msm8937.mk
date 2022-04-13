@@ -441,3 +441,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit common proprietary files
 $(call inherit-product, vendor/xiaomi/msm8937-common/msm8937-common-vendor.mk)
+
+# Inherit private extras
+USE_EXTRAS := true
+$(call inherit-product-if-exists, vendor/extras/product.mk)
