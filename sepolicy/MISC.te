@@ -1,0 +1,31 @@
+#============= hal_audio_default ==============
+allow hal_audio_default property_socket:sock_file write;
+
+#============= installd ==============
+allow installd adsprpcd_file:filesystem quotaget;
+
+#============= kernel ==============
+allow kernel self:capability kill;
+
+#============= qti_init_shell ==============
+##allow qti_init_shell self:capability dac_override;
+
+#============= system_app ==============
+allow system_app fs_bpf:dir search;
+
+#============= tee ==============
+allow tee tmpfs:dir read;
+
+#============= untrusted_app ==============
+allow untrusted_app rootfs:dir read;
+
+#============= wcnss_service ==============
+#allow wcnss_service serialno_prop:file read;
+##get_prop(wcnss_service, serialno_prop);
+
+#============= zygote ==============
+allow zygote proc_cmdline:file read;
+allow zygote self:capability kill;
+
+#============= system_server ==============
+###allow system_server dalvikcache_data_file:file { execute write };
